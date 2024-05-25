@@ -62,4 +62,9 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Resources\Images\Icons\" />
+	  <Folder Include="Resources\Images\Pets\" />
+	</ItemGroup>
+
 </Project>
