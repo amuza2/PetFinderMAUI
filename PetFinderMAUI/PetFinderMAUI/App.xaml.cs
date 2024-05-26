@@ -1,4 +1,6 @@
-﻿namespace PetFinderMAUI
+﻿using PetFinderMAUI.Pages;
+
+namespace PetFinderMAUI
 {
 	public partial class App : Application
 	{
@@ -6,7 +8,7 @@
 		{
 			InitializeComponent();
 
-			MainPage = new AppShell();
+			MainPage = new NavigationPage(new WelcomePage());
 		}
 	}
 }
