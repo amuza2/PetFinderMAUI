@@ -2,38 +2,34 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PetFinderMAUI.Pages.WelcomePage"
-             Title="WelcomePage">
+             BackgroundColor="#F5F5FA"
+             NavigationPage.HasNavigationBar="False">
+
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <!-- Welcome Text -->
-        <Label Text="WELCOME TO"
-               FontSize="24"
-               HorizontalOptions="Center"
-               Margin="0,20,0,0"/>
-
-        <!-- Logo/Image -->
-        <Image Source="dotnet_bot.png"
-               WidthRequest="150"
-               HeightRequest="150"
-               HorizontalOptions="Center"
-               Margin="0,20,0,0"/>
-
         <!-- Illustration Image -->
-        <Image Source="starter_image.png"
-               WidthRequest="300"
-               HeightRequest="200"
-               HorizontalOptions="Center"
-               Margin="0,20,0,0"/>
+        <Image Source="ilust.png"
+               Aspect="AspectFill"
+               WidthRequest="280"
+               HeightRequest="280"
+               HorizontalOptions="CenterAndExpand"
+               Margin="0,-10,0,40"/>
+        
+        <Label Text="Find Your Best" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular" FontSize="30"  FontAttributes="Bold"/>
+        <Label Text="Companion With Us" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular" FontSize="30"  FontAttributes="Bold"/>
+        <Label Text="Join and discover the best suitable pets as per your" FontFamily="NunitoRegular" TextColor="SlateGrey" HorizontalOptions="Center" FontSize="13" Margin="0,15,0,0"/>
+        <Label Text="preferences from the Comfort of your Home" FontFamily="NunitoRegular" TextColor="SlateGrey" HorizontalOptions="Center" FontSize="13" Margin="0,0,0,80" />
 
+        <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
         <!-- Login Button -->
         <Button x:Name="btnLogin"
                 Text="LOGIN"
-                BackgroundColor="Purple"
+                BackgroundColor="#57419D"
                 TextColor="White"
-                CornerRadius="20"
+                CornerRadius="25"
                 HorizontalOptions="Center"
-                WidthRequest="200"
+                WidthRequest="300"
                 HeightRequest="50"
-                Margin="0,20,0,0"
+                Margin="0,70,0,0"
                 Clicked="btnLogin_Clicked"/>
 
         <!-- Sign Up Button -->
@@ -41,11 +37,12 @@
                 Text="SIGN UP"
                 BackgroundColor="Gray"
                 TextColor="White"
-                CornerRadius="20"
+                CornerRadius="25"
                 HorizontalOptions="Center"
-                WidthRequest="200"
+                WidthRequest="300"
                 HeightRequest="50"
                 Margin="0,10,0,0"
                 Clicked="btnSignUp_Clicked"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>
