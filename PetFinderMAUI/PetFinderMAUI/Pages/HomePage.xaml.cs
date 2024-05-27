@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
+using PetFinderMAUI.Pages;
 
 namespace PetFinderMAUI
 {
-    public partial class MainPage : ContentPage
+    public partial class HomePage : ContentPage
     {
-        public MainPage()
+        public HomePage()
         {
             InitializeComponent();
             GetProfileInfo();
