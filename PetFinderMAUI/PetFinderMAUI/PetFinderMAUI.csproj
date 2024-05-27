@@ -72,46 +72,46 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foreground.svg" TintColor="#23286B"/>
+        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foreground.svg" TintColor="#23286B" />
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#23286B"/>
+        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#23286B" />
         <!-- Images -->
-        <MauiImage Include="Resources\Images\*"/>
-        <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
+        <MauiImage Include="Resources\Images\*" />
+		<MauiImage Include="Resources\Images\Icons\*" />
+		<MauiImage Include="Resources\Images\Pets\*" />
+        <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
         <!-- Custom Fonts -->
-        <MauiFont Include="Resources\Fonts\*"/>
+        <MauiFont Include="Resources\Fonts\*" />
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Resources\Fonts\Nunito-Bold.ttf"/>
-        <None Remove="Resources\Fonts\Nunito-Regular.ttf"/>
-        <None Remove="Resources\Fonts\Nunito-SemiBold.ttf"/>
-        <None Remove="Resources\Images\ilust.png"/>
+        <None Remove="Resources\Fonts\Nunito-Bold.ttf" />
+        <None Remove="Resources\Fonts\Nunito-Regular.ttf" />
+        <None Remove="Resources\Fonts\Nunito-SemiBold.ttf" />
+        <None Remove="Resources\Images\ilust.png" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2"/>
-        <PackageReference Include="FirebaseDatabase.net" Version="4.2.0"/>
-        <PackageReference Include="FirebaseStorage.net" Version="1.0.3"/>
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
-        <PackageReference Include="UraniumUI" Version="2.8.1"/>
-        <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.8.1"/>
-        <PackageReference Include="UraniumUI.Material" Version="2.8.1"/>
+        <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
+        <PackageReference Include="FirebaseDatabase.net" Version="4.2.0" />
+        <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+        <PackageReference Include="UraniumUI" Version="2.8.1" />
+        <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.8.1" />
+        <PackageReference Include="UraniumUI.Material" Version="2.8.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Resources\Images\Icons\"/>
-        <Folder Include="Resources\Images\Pets\"/>
-    </ItemGroup>
-
-    <ItemGroup>
+        <MauiXaml Update="Pages\AboutPetPage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
         <MauiXaml Update="Pages\LoginPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PetFinderMAUI.Pages.AboutPetPage"
+             Title="AboutPetPage"
+             BackgroundColor="#FCFCFE">
+    <Grid
+        Margin="24,52,24,0"
+        ColumnDefinitions="*,*"
+        RowDefinitions="Auto,*">
+
+        <!-- Header Icons -->
+        <ImageButton
+            WidthRequest="24"
+            HeightRequest="24"
+            Source="arrow_left_icon.png"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            />
+
+        <ImageButton
+            WidthRequest="24"
+            HeightRequest="24"
+            Source="heart_icon.png"
+            Grid.Row="0"
+            Grid.Column="1"
+            HorizontalOptions="End"
+            VerticalOptions="Center" />
+
+
+        <!-- Main Content ScrollView -->
+        <ScrollView
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never"
+            Margin="0,16,0,0">
+
+            <VerticalStackLayout
+                Spacing="8">
+                <!-- Planet Image -->
+                <Frame BackgroundColor="#fff"
+                       BorderColor="Transparent"
+                       HasShadow="True"
+                       CornerRadius="10"
+                       Padding="10">
+                    <Frame.Shadow>
+                        <Shadow Radius="5" Opacity="0.7" Brush="Gray" />
+
+                    </Frame.Shadow>
+                    <Border StrokeShape="RoundRectangle 150,150,150,150"
+                            WidthRequest="240"
+                            HeightRequest="240"
+                            HorizontalOptions="Center"
+                            StrokeThickness="3"
+                            Padding="-50"
+                            Stroke="#2B0B98"
+                            >
+                        <Image
+                            Source="cat_to_adopt_1.jpg"
+                            Aspect="AspectFit"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            />
+                    </Border>
+                </Frame>
+
+
+                <!-- Planet Name -->
+
+                <Frame BackgroundColor="#fff"
+                       BorderColor="Transparent"
+                       HasShadow="True"
+                       CornerRadius="10"
+                       Padding="10">
+                    <Frame.Shadow>
+                        <Shadow Radius="5" Opacity="0.7" Brush="Gray" />
+
+                    </Frame.Shadow>
+                    <VerticalStackLayout Spacing="6">
+                        <HorizontalStackLayout HorizontalOptions="Center">
+                            <!--Pet Name-->
+                            <Label
+                                Text="Cristal"
+                                HorizontalTextAlignment="Center"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                />
+                            <!--Pet Gender-->
+                            <Image
+                                Source="female.png"
+                                HorizontalOptions="Start"
+                                WidthRequest="16"/>
+                        </HorizontalStackLayout>
+
+                        <!-- Vaccinated Pet -->
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Vaccinated: true" />
+                        <!-- Breed Pet -->
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Breed: American Shorthair" />
+
+                        <Label Text="Age: 3 Months"
+                               HorizontalTextAlignment="Center"
+                               />
+                        <Label Text="About Cristal"
+                               HorizontalOptions="Center"
+                               FontAttributes="Bold"
+                               />
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus aenean vel elit scelerisque mauris pellentesque. Turpis egestas sed tempus urna et pharetra pharetra massa massa. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Eget duis at tellus."
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <!--Owner Info-->
+
+                <Grid RowDefinitions="auto,auto,auto,auto"
+                      ColumnDefinitions="*,*,*"
+                      RowSpacing="10">
+
+                    <Border Grid.RowSpan="2"
+                            Grid.Column="0"
+                            StrokeShape="RoundRectangle 50,50,50,50"
+                            WidthRequest="50"
+                            HeightRequest="50"
+                            HorizontalOptions="Center"
+                            StrokeThickness="1"
+                            Padding="-50"
+                            BackgroundColor="#AC99EA"
+                            Stroke="#2B0B98">
+                        <Image Source="user.png"
+                               WidthRequest="55"/>
+                    </Border >
+                    <Label Grid.Row="0"
+                           Grid.Column="1"
+                           Text="Owner:  John Doe"
+                           HorizontalTextAlignment="Start"
+                           VerticalTextAlignment="Center"/>
+                    <HorizontalStackLayout Grid.Row="1"
+                                           Grid.Column="1"
+                                           Spacing="15">
+                        <Image
+                            Source="location_marker.png"
+                            WidthRequest="16"
+                            HorizontalOptions="Start"/>
+                        <Label
+                            Text="Tipaza Bousmail"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+
+                    <Button Text="Adopt me"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3">
+                        <Button.Shadow>
+                            <Shadow Radius="20" Opacity="0.7" Brush="Gray" />
+                        </Button.Shadow>
+                    </Button>
+
+                </Grid>
+
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -15,7 +15,7 @@ namespace PetFinderMAUI
                 ? new NavigationPage(new AppShell())
                 :
                 // If the user is not logged in, navigate to the login page
-                new NavigationPage(new WelcomePage());
+                new NavigationPage(new AboutPetPage());
         }
     }
 }
