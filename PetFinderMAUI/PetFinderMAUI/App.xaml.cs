@@ -7,7 +7,6 @@ namespace PetFinderMAUI
 		public App()
 		{
 			InitializeComponent();
-
 			MainPage = new NavigationPage(new WelcomePage());
 		}
 	}
