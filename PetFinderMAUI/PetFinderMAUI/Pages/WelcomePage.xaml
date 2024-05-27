@@ -4,8 +4,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PetFinderMAUI.Pages.WelcomePage"
              NavigationPage.HasNavigationBar="False"
-             Title="WelcomePage">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+             BackgroundColor="#F5F5FA">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
         <!-- Illustration Image -->
         <Image Source="ilust.png"
             Aspect="AspectFill"
@@ -22,27 +22,15 @@
         <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
             <!-- Login Button -->
             <Button x:Name="btnLogin"
-             Text="LOGIN"
+             Text="Get Started"
              BackgroundColor="#57419D"
              TextColor="White"
-             CornerRadius="25"
+             CornerRadius="15"
              HorizontalOptions="Center"
              WidthRequest="300"
              HeightRequest="50"
-             Margin="0,69,0,0"
+             Margin="0,155,0,0"
              Clicked="btnLogin_Clicked"/>
-
-            <!-- Sign Up Button -->
-            <Button x:Name="btnSignUp"
-             Text="SIGN UP"
-             BackgroundColor="Gray"
-             TextColor="White"
-             CornerRadius="25"
-             HorizontalOptions="Center"
-             WidthRequest="300"
-             HeightRequest="50"
-             Margin="0,10,0,0"
-             Clicked="btnSignUp_Clicked"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
