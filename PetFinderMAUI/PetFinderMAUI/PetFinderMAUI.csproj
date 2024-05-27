@@ -90,13 +90,13 @@
 	  <MauiXaml Update="Pages\WelcomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\MainPage.xaml">
+		<MauiXaml Update="Pages\HomePage.xaml">
 	    <SubType>Designer</SubType>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\MainPage.xaml.cs">
+		<Compile Update="Pages\HomePage.xaml.cs">
 	    <DependentUpon>MainPage.xaml</DependentUpon>
 	    <SubType>Code</SubType>
 	  </Compile>
