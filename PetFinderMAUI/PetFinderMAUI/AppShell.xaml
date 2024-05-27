@@ -1,15 +1,36 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <Shell
     x:Class="PetFinderMAUI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:PetFinderMAUI"
+    xmlns:pages="clr-namespace:PetFinderMAUI.Pages"
+    xmlns:m="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
     Shell.FlyoutBehavior="Disabled"
     Title="PetFinderMAUI">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+    <TabBar>
+
+        <ShellContent
+            Title="Home"
+            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Home}}"
+            ContentTemplate="{DataTemplate local:HomePage}"
+            Route="HomePage" />
+
+        <ShellContent
+            Title="Favorite"
+            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Favorite}}"
+            Route="HomePage" />
+
+        <ShellContent
+            Title="Settings"
+            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Settings}}"
+            ContentTemplate="{DataTemplate pages:SettingsPage}"
+            Route="SettingsPage" />
+
+    </TabBar>
+
 
 </Shell>
