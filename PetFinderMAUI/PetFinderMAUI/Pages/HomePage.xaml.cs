@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using Newtonsoft.Json;
 using PetFinderMAUI.Pages;
 
 namespace PetFinderMAUI
@@ -9,6 +11,8 @@ namespace PetFinderMAUI
         {
             InitializeComponent();
             GetProfileInfo();
+
+            Toast.Make("Let's go!", ToastDuration.Short, 16);
         }
 
         private void GetProfileInfo()
