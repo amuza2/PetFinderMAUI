@@ -5,32 +5,36 @@
              x:Class="PetFinderMAUI.Pages.WelcomePage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#F5F5FA">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <!-- Illustration Image -->
         <Image Source="ilust.png"
-            Aspect="AspectFill"
-            WidthRequest="280"
-            HeightRequest="281"
-            HorizontalOptions="CenterAndExpand"
-            Margin="0,-10,0,40"/>
+               Aspect="AspectFill"
+               WidthRequest="280"
+               HeightRequest="281"
+               HorizontalOptions="CenterAndExpand"
+               Margin="0,-10,0,40" />
 
-        <Label Text="Find Your Best" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular" FontSize="30"  FontAttributes="Bold"/>
-        <Label Text="Companion With Us" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular" FontSize="30"  FontAttributes="Bold"/>
-        <Label Text="Join and discover the best suitable pets as per your" FontFamily="NunitoRegular" TextColor="SlateGrey" HorizontalOptions="Center" FontSize="13" Margin="0,15,0,0"/>
-        <Label Text="preferences from the Comfort of your Home" FontFamily="NunitoRegular" TextColor="SlateGrey" HorizontalOptions="Center" FontSize="13" Margin="0,0,0,80" />
+        <Label Text="Find Your Best" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular"
+               FontSize="30" FontAttributes="Bold" />
+        <Label Text="Companion With Us" TextColor="black" HorizontalOptions="Center" FontFamily="NunitoRegular"
+               FontSize="30" FontAttributes="Bold" />
+        <Label Text="Join and discover the best suitable pets as per your" FontFamily="NunitoRegular"
+               TextColor="SlateGrey" HorizontalOptions="Center" FontSize="13" Margin="0,15,0,0" />
+        <Label Text="preferences from the Comfort of your Home" FontFamily="NunitoRegular" TextColor="SlateGrey"
+               HorizontalOptions="Center" FontSize="13" Margin="0,0,0,80" />
 
         <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
             <!-- Login Button -->
             <Button x:Name="btnLogin"
-             Text="Get Started"
-             BackgroundColor="#57419D"
-             TextColor="White"
-             CornerRadius="15"
-             HorizontalOptions="Center"
-             WidthRequest="300"
-             HeightRequest="50"
-             Margin="0,155,0,0"
-             Clicked="btnLogin_Clicked"/>
+                    Text="Get Started"
+                    BackgroundColor="#57419D"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HorizontalOptions="Center"
+                    WidthRequest="300"
+                    HeightRequest="50"
+                    Margin="0,155,0,0"
+                    Clicked="btnLogin_Clicked" />
         </StackLayout>
     </StackLayout>
 </ContentPage>
