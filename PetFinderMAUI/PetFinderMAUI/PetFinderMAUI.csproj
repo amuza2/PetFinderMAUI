@@ -70,15 +70,9 @@
         <ApplicationId>dev.devunion.petfindermaui</ApplicationId>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-        <AndroidSupportedAbis>armeabi-v7a;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
-        <AndroidPackageFormat>apk</AndroidPackageFormat>
-        <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
-    </PropertyGroup>
-
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foreground.svg"/>
+        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foreground.svg" Resize="True" BaseSize="128,128"/>
 
         <!-- Splash Screen -->
         <MauiSplashScreen Include="Resources\Splash\splash.svg" Resize="True" BaseSize="128,128" Color="#23286B"/>
