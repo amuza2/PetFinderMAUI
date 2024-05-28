@@ -50,11 +50,12 @@
 
             <!-- Login Button -->
             <Button Text="Login"
+                 input:FormView.IsSubmitButton="True"   
                  BackgroundColor="#57419D"
                  TextColor="White"
-                 CornerRadius="20"
+                 CornerRadius="15"
                  HorizontalOptions="Center"
-                 WidthRequest="300"
+                 WidthRequest="310"
                  x:Name="LoginBtn"
                  Command="{Binding LoginBtn}"
                  HeightRequest="50"
