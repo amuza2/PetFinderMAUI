@@ -31,7 +31,7 @@
                 <material:TextField Title="Full Name"
                          Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Person}}"
                          Margin="0,10,0,0"
-                         HeightRequest="50"
+                         HeightRequest="51"
                          AllowClear="True" >
                     <validation:RequiredValidation/>
                 </material:TextField>
