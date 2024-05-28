@@ -90,10 +90,15 @@ internal class RegisterViewModel : INotifyPropertyChanged
         {
             var userInfo = new User
             {
+                FirstName = null,
+                LastName = null,
+                IsAdmin = false,
+                PhoneNumber = null,
+                Address = null,
                 UserId = userId,
                 Username = userEmail.Split('@')[0], // Use the part of the _signUpEmail before the @ as the username
                 Email = userEmail,
-                Gender = "null"
+                Gender = null
             };
 
             var userJson = JsonConvert.SerializeObject(userInfo); // Convert User object to JSON string
