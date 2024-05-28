@@ -37,8 +37,7 @@
                             x:Name="EmailField"
                             Text="{Binding SignUpEmail}"
                             HeightRequest="50"
-                            AllowClear="True">
-        </material:TextField>
+                            AllowClear="True" />
         <!-- Password Entry -->
         <material:TextField Title="Password"
                             Margin="0,10,0,0"

@@ -1,31 +1,42 @@
-using Firebase.Auth;
 using System.ComponentModel;
+using Firebase.Auth;
+using Firebase.Database;
+using Firebase.Database.Query;
+using Newtonsoft.Json;
+using PetFinderMAUI.Utils;
 
 namespace PetFinderMAUI.ViewModels;
 
 internal class RegisterViewModel : INotifyPropertyChanged
 {
-    public string webApiKey = "AIzaSyDHyJAIn5P56uvAmFcSoq7M_MsP_azTmn0";
+    private static readonly FirebaseClient _firebaseClient = new("https://petcare-1d322-default-rtdb.firebaseio.com/");
 
-    private INavigation _navigation;
-    private string email;
+    private readonly INavigation _navigation;
+
+    private readonly string webApiKey = "AIzaSyDHyJAIn5P56uvAmFcSoq7M_MsP_azTmn0";
+    private string _signUpEmail;
     private string _signUpPassword;
 
-    public event PropertyChangedEventHandler PropertyChanged;
+    public RegisterViewModel(INavigation navigation)
+    {
+        _navigation = navigation;
+        SignUpBtn = new Command(RegisterUserTappedAsync);
+    }
 
     public string SignUpEmail
     {
-        get => email;
+        get => _signUpEmail;
         set
         {
-            email = value;
+            _signUpEmail = value;
             RaisePropertyChanged("SignUpEmail");
         }
     }
 
     public string SignUpPassword
     {
-        get => _signUpPassword; set
+        get => _signUpPassword;
+        set
         {
             _signUpPassword = value;
             RaisePropertyChanged("SignUpPassword");
@@ -34,34 +45,70 @@ internal class RegisterViewModel : INotifyPropertyChanged
 
     public Command SignUpBtn { get; }
 
+    public event PropertyChangedEventHandler? PropertyChanged;
+
     private void RaisePropertyChanged(string v)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
-    }
-
-    public RegisterViewModel(INavigation navigation)
-    {
-        this._navigation = navigation;
-
-        SignUpBtn = new Command(RegisterUserTappedAsync);
     }
 
     private async void RegisterUserTappedAsync(object obj)
     {
         try
         {
-            // var testEmail = SignUpEmail;
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
             var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(SignUpEmail, SignUpPassword);
-            string token = auth.FirebaseToken;
+            var token = auth.FirebaseToken;
+            var userId = auth.User.LocalId;
             if (token != null)
-                await App.Current.MainPage.DisplayAlert("Alert", "User Registered successfully", "OK");
-            await this._navigation.PopAsync();
+            {
+                var isStoreUserInfoSuccessful =
+                    await StoreUserInfo(SignUpEmail, userId); // Pass user ID to StoreUserInfo
+                if (isStoreUserInfoSuccessful)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert", "User Registered successfully", "OK");
+                    await _navigation.PopAsync();
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Alert",
+                        "Failed to store user information in Firestore",
+                        "OK");
+                }
+            }
         }
         catch (Exception ex)
         {
-            await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+            await Application.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             throw;
+        }
+    }
+
+    private async Task<bool> StoreUserInfo(string userEmail, string userId)
+    {
+        try
+        {
+            var userInfo = new User
+            {
+                UserId = userId,
+                Username = userEmail.Split('@')[0], // Use the part of the _signUpEmail before the @ as the username
+                Email = userEmail,
+                Gender = "null"
+            };
+
+            var userJson = JsonConvert.SerializeObject(userInfo); // Convert User object to JSON string
+
+            await _firebaseClient
+                .Child("Users")
+                .Child(userId)
+                .PutAsync(userJson);
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            GlobalHelper.ShowToast(ex.Message, 16);
+            return false;
         }
     }
 }

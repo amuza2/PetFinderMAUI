@@ -1,25 +1,13 @@
-﻿using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Core;
-using Newtonsoft.Json;
-using PetFinderMAUI.Pages;
+﻿using PetFinderMAUI.Utils;
 
-namespace PetFinderMAUI
+namespace PetFinderMAUI.Pages;
+
+public partial class HomePage : ContentPage
 {
-    public partial class HomePage : ContentPage
+    public HomePage()
     {
-        public HomePage()
-        {
-            InitializeComponent();
-            GetProfileInfo();
+        InitializeComponent();
 
-            Toast.Make("Let's go!", ToastDuration.Short, 16);
-        }
-
-        private void GetProfileInfo()
-        {
-            var userInfo =
-                JsonConvert.DeserializeObject<Firebase.Auth.FirebaseAuth>(Preferences.Get("FreshFirebaseToken", ""));
-            UserEmail.Text = "Welcome " + userInfo!.User.Email;
-        }
+        UserEmail.Text = "Welcome " + GlobalHelper.GetUserEmail();
     }
 }

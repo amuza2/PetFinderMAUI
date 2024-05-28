@@ -9,7 +9,7 @@ namespace PetFinderMAUI.ViewModels;
 internal class LoginViewModel : INotifyPropertyChanged
 {
     // Navigation interface
-    private INavigation _navigation;
+    private readonly INavigation _navigation;
 
     // User's username and password
     private string userName;
@@ -22,7 +22,7 @@ internal class LoginViewModel : INotifyPropertyChanged
     // Constructor for the ViewModel
     public LoginViewModel(INavigation navigation)
     {
-        this._navigation = navigation;
+        _navigation = navigation;
         RegisterBtn = new Command(RegisterBtnTappedAsync);
         LoginBtn = new Command(LoginBtnTappedAsync);
     }
@@ -87,7 +87,7 @@ internal class LoginViewModel : INotifyPropertyChanged
         catch (Exception ex)
         {
             // Show an alert if there's an error
-            await App.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
+            await Application.Current!.MainPage!.DisplayAlert("Alert", ex.Message, "OK");
             throw;
         }
     }
@@ -96,7 +96,7 @@ internal class LoginViewModel : INotifyPropertyChanged
     private async void RegisterBtnTappedAsync(object obj)
     {
         // Navigate to the SignUp Page
-        await this._navigation.PushAsync(new SignUpPage());
+        await _navigation.PushAsync(new SignUpPage());
     }
 
     // Method to raise the PropertyChanged event
