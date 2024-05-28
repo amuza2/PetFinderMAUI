@@ -45,11 +45,11 @@
 
         <!-- Login Button -->
         <Button Text="Login"
-                BackgroundColor="Purple"
+                BackgroundColor="#57419D"
                 TextColor="White"
                 CornerRadius="20"
                 HorizontalOptions="Center"
-                WidthRequest="200"
+                WidthRequest="300"
                 x:Name="LoginBtn"
                 Command="{Binding LoginBtn}"
                 HeightRequest="50"
