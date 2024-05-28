@@ -6,11 +6,16 @@
              NavigationPage.HasNavigationBar="False"
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
+             xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
+             BackgroundColor="#F5F5FA"
              Title="LoginPage">
+    
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
         <!-- Welcome Back Text -->
         <Label Text="WELCOME BACK !"
                FontSize="24"
+               FontFamily="NunitoRegular"
                HorizontalOptions="Center"
                Margin="0,20,0,0" />
 
@@ -21,54 +26,62 @@
                HorizontalOptions="Center"
                Margin="0,20,0,0" />
 
-        <!-- Email Entry -->
-        <material:TextField Title="Email"
-                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
-                            Margin="0,10,0,0"
-                            HeightRequest="50"
-                            Text="{Binding UserName}"
-                            AllowClear="True" />
+        <input:FormView>
+                <!-- Email Entry -->
+                <material:TextField Title="Email"
+                        Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
+                        Margin="0,10,0,0"
+                        HeightRequest="50"
+                        Text="{Binding UserName}"
+                        AllowClear="True" />
 
-        <!-- Password Entry -->
-        <material:TextField Title="Password"
-                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Password}}"
-                            Margin="0,10,0,0"
-                            HeightRequest="50"
-                            x:Name="PasswordField"
-                            Text="{Binding UserPassword}"
-                            IsPassword="True">
-            <material:TextField.Attachments>
-                <material:TextFieldPasswordShowHideAttachment />
-            </material:TextField.Attachments>
-        </material:TextField>
+                <!-- Password Entry -->
+                <material:TextField Title="Password"
+                        Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Password}}"
+                        Margin="0,20,0,10"
+                        HeightRequest="50"
+                        x:Name="PasswordField"
+                        Text="{Binding UserPassword}"
+                        IsPassword="True">
+                    <material:TextField.Attachments>
+                        <material:TextFieldPasswordShowHideAttachment />
+                    </material:TextField.Attachments>
+                </material:TextField>
 
 
-        <!-- Login Button -->
-        <Button Text="Login"
-                BackgroundColor="Purple"
-                TextColor="White"
-                CornerRadius="20"
-                HorizontalOptions="Center"
-                WidthRequest="200"
-                x:Name="LoginBtn"
-                Command="{Binding LoginBtn}"
-                HeightRequest="50"
-                Margin="0,20,0,0" />
+                <!-- Login Button -->
+                <Button Text="Login"
+                        BackgroundColor="#57419D"
+                        TextColor="White"
+                        CornerRadius="15"
+                        HorizontalOptions="Center"
+                        WidthRequest="320"
+                        x:Name="LoginBtn"
+                        Command="{Binding LoginBtn}"
+                        HeightRequest="50"
+                        Margin="0,20,0,0" />
+
+        </input:FormView>
+        
+            <!-- Forgot Password Link -->
+                <Label Text="Forgot password ?"
+                        HorizontalOptions="End"
+                        TextColor="#57419D"
+                        FontAttributes="Bold"
+                        Margin="0,10,3,50" /> 
+        
+        <Label Text="ـــــــــــــــــــــــــــــــــــــــــــــــ Or ـــــــــــــــــــــــــــــــــــــــــــــــ" HorizontalOptions="Center"/>
         <!-- Register Button -->
-        <Button Text="You don't have account? SignUp"
+        <Button Text="Don't have account? SignUp"
                 BackgroundColor="Transparent"
-                TextColor="Black"
+                TextColor="Gray"
                 BorderWidth="0"
                 HorizontalOptions="Center"
                 x:Name="RegisterBtn"
                 Command="{Binding RegisterBtn}"
-                Margin="0,20,0,0" />
+                Margin="0,5,0,0" />
 
 
-        <!-- Forgot Password Link -->
-        <Label Text="Forgot password?"
-               HorizontalOptions="Center"
-               TextColor="Gray"
-               Margin="0,20,0,0" />
+       
     </StackLayout>
 </ContentPage>
