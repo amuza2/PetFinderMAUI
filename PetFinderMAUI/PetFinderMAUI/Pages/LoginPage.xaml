@@ -23,55 +23,67 @@
                HorizontalOptions="Center"
                Margin="0,20,0,0" />
 
+        <input:FormView>
+            <!-- Email Entry -->
+            <material:TextField Title="Email"
+                     Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
+                     Margin="0,10,0,15"
+                     HeightRequest="50"
+                     Text="{Binding UserName}"
+                     AllowClear="True" >
+                <validation:RequiredValidation/>
+            </material:TextField>
+
+            <!-- Password Entry -->
+            <material:TextField Title="Password"
+                     Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Password}}"
+                     Margin="0,10,0,10"
+                     HeightRequest="50"
+                     x:Name="PasswordField"
+                     Text="{Binding UserPassword}"
+                     IsPassword="True">
+                <validation:MinLengthValidation MinLength="8"/>
+                <material:TextField.Attachments>
+                    <material:TextFieldPasswordShowHideAttachment />
+                </material:TextField.Attachments>
+            </material:TextField>
+
+            <!-- Login Button -->
+            <Button Text="Login"
+                 BackgroundColor="#57419D"
+                 TextColor="White"
+                 CornerRadius="20"
+                 HorizontalOptions="Center"
+                 WidthRequest="300"
+                 x:Name="LoginBtn"
+                 Command="{Binding LoginBtn}"
+                 HeightRequest="50"
+                 Margin="0,20,0,0" />
+            <!-- Register Button -->
+            
+
+        </input:FormView>
         
-        <!-- Email Entry -->
-        <material:TextField Title="Email"
-                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
-                            Margin="0,10,0,0"
-                            HeightRequest="50"
-                            Text="{Binding UserName}"
-                            AllowClear="True" />
-
-        <!-- Password Entry -->
-        <material:TextField Title="Password"
-                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Password}}"
-                            Margin="0,10,0,0"
-                            HeightRequest="50"
-                            x:Name="PasswordField"
-                            Text="{Binding UserPassword}"
-                            IsPassword="True">
-            <material:TextField.Attachments>
-                <material:TextFieldPasswordShowHideAttachment />
-            </material:TextField.Attachments>
-        </material:TextField>
-
-
-        <!-- Login Button -->
-        <Button Text="Login"
-                BackgroundColor="#57419D"
-                TextColor="White"
-                CornerRadius="20"
-                HorizontalOptions="Center"
-                WidthRequest="300"
-                x:Name="LoginBtn"
-                Command="{Binding LoginBtn}"
-                HeightRequest="50"
-                Margin="0,20,0,0" />
-        <!-- Register Button -->
-        <Button Text="You don't have account? SignUp"
-                BackgroundColor="Transparent"
-                TextColor="Black"
-                BorderWidth="0"
-                HorizontalOptions="Center"
-                x:Name="RegisterBtn"
-                Command="{Binding RegisterBtn}"
-                Margin="0,20,0,0" />
-
-
         <!-- Forgot Password Link -->
-        <Label Text="Forgot password?"
-               HorizontalOptions="Center"
-               TextColor="Gray"
-               Margin="0,20,0,0" />
+            <Label Text="Forgot password?"
+                 HorizontalOptions="End"
+                 TextColor="#57419D"
+                 FontAttributes="Bold"
+                 FontSize="14"
+                 Margin="0,5,4,40" />
+
+        <Label HorizontalOptions="Center" 
+               Text="ــــــــــــــــــــــــــــــــــــــــــــــــــ Or ــــــــــــــــــــــــــــــــــــــــــــــــــ"/>
+        
+            <Button Text="You don't have account? SignUp"
+                 BackgroundColor="Transparent"
+                 TextColor="Gray"
+                 BorderWidth="0"
+                 HorizontalOptions="Center"
+                 x:Name="RegisterBtn"
+                 Command="{Binding RegisterBtn}"
+                 Margin="0,10,0,0" />   
+
+      
     </StackLayout>
 </ContentPage>
