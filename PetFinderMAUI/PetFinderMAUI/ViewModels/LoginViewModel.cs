@@ -11,6 +11,9 @@ internal class LoginViewModel : INotifyPropertyChanged
     // Navigation interface
     private readonly INavigation _navigation;
 
+    // Loading animation
+    private bool _isLoginRunning;
+
     // User's username and password
     private string userName;
 
@@ -25,6 +28,16 @@ internal class LoginViewModel : INotifyPropertyChanged
         _navigation = navigation;
         RegisterBtn = new Command(RegisterBtnTappedAsync);
         LoginBtn = new Command(LoginBtnTappedAsync);
+    }
+
+    public bool IsLoginRunning
+    {
+        get => _isLoginRunning;
+        set
+        {
+            _isLoginRunning = value;
+            RaisePropertyChanged("IsLoginRunning");
+        }
     }
 
     // Commands for the Register and Login buttons
@@ -60,6 +73,7 @@ internal class LoginViewModel : INotifyPropertyChanged
     // Method for the Login button
     private async void LoginBtnTappedAsync(object obj)
     {
+        IsLoginRunning = true;
         // Create a new Firebase Auth Provider
         var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
         try
@@ -78,6 +92,7 @@ internal class LoginViewModel : INotifyPropertyChanged
 
             // Save the user's login status
             Preferences.Set("IsLoggedIn", true);
+            IsLoginRunning = false;
 
             // Navigate to the Main Page
             // await this._navigation.PushAsync(new HomePage());
@@ -86,6 +101,7 @@ internal class LoginViewModel : INotifyPropertyChanged
         }
         catch (Exception ex)
         {
+            IsLoginRunning = false;
             // Show an alert if there's an error
             await Application.Current!.MainPage!.DisplayAlert("Alert", ex.Message, "OK");
             throw;

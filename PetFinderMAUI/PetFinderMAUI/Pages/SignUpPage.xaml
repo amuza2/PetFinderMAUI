@@ -70,7 +70,6 @@
 
         <!-- Sign Up Button -->
         <Button Text="Sign up"
-                BackgroundColor="Purple"
                 TextColor="White"
                 CornerRadius="20"
                 x:Name="SignUpBtn"
@@ -79,5 +78,9 @@
                 WidthRequest="200"
                 HeightRequest="50"
                 Margin="0,20,0,0" />
+        <ActivityIndicator x:Name="SignUpActivityIndicator"
+                           Margin="0,10,0,0"
+                           IsRunning="{Binding IsSignUpRunning}"
+                           IsVisible="{Binding IsSignUpRunning}" />
     </StackLayout>
 </ContentPage>

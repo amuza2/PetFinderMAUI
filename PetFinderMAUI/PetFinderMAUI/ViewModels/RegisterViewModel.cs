@@ -14,6 +14,9 @@ internal class RegisterViewModel : INotifyPropertyChanged
     private readonly INavigation _navigation;
 
     private readonly string webApiKey = "AIzaSyDHyJAIn5P56uvAmFcSoq7M_MsP_azTmn0";
+
+    // Loading animation
+    private bool _isSignUpRunning;
     private string _signUpEmail;
     private string _signUpPassword;
 
@@ -21,6 +24,16 @@ internal class RegisterViewModel : INotifyPropertyChanged
     {
         _navigation = navigation;
         SignUpBtn = new Command(RegisterUserTappedAsync);
+    }
+
+    public bool IsSignUpRunning
+    {
+        get => _isSignUpRunning;
+        set
+        {
+            _isSignUpRunning = value;
+            RaisePropertyChanged("IsSignUpRunning");
+        }
     }
 
     public string SignUpEmail
@@ -56,6 +69,8 @@ internal class RegisterViewModel : INotifyPropertyChanged
     {
         try
         {
+            IsSignUpRunning = true;
+
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
             var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(SignUpEmail, SignUpPassword);
             var token = auth.FirebaseToken;
@@ -76,9 +91,12 @@ internal class RegisterViewModel : INotifyPropertyChanged
                         "OK");
                 }
             }
+
+            IsSignUpRunning = false;
         }
         catch (Exception ex)
         {
+            IsSignUpRunning = false;
             await Application.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
             throw;
         }
