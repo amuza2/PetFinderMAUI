@@ -10,7 +10,7 @@
              xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
              Title="LoginPage">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
-        <!-- Welcome Back Text -->
+        <!-- Welcome Back TextF -->
         <Label Text="WELCOME BACK !"
                FontSize="24"
                HorizontalOptions="Center"
