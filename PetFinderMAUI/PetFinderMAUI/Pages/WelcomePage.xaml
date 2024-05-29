@@ -27,7 +27,7 @@
             <!-- Login Button -->
             <Button x:Name="btnLogin"
                     Text="Get Started"
-                    BackgroundColor="#57419D"
+
                     TextColor="White"
                     CornerRadius="15"
                     HorizontalOptions="Center"

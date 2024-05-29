@@ -23,7 +23,7 @@
                HorizontalOptions="Center"
                Margin="0,20,0,0" />
 
-        
+
         <!-- Email  Entry -->
         <material:TextField Title="Email"
                             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
@@ -48,7 +48,6 @@
 
         <!-- Login Button -->
         <Button Text="Login"
-                BackgroundColor="#57419D"
                 TextColor="White"
                 CornerRadius="20"
                 HorizontalOptions="Center"

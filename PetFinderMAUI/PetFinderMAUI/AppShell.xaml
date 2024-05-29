@@ -29,6 +29,11 @@
             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Settings}}"
             ContentTemplate="{DataTemplate pages:SettingsPage}"
             Route="SettingsPage" />
+        <ShellContent
+            Title="Account"
+            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Person_2}}"
+            ContentTemplate="{DataTemplate pages:ProfilePage}"
+            Route="ProfilePage" />
 
     </TabBar>
 
