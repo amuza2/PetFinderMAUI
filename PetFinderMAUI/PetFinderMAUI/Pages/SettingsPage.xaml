@@ -8,18 +8,6 @@
             Padding="30,0"
             Spacing="25">
 
-
-            <!-- LogOut Button -->
-            <Button Text="Log out"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    CornerRadius="20"
-                    x:Name="LogOutBtn"
-                    Clicked="OnLogoutClicked"
-                    HorizontalOptions="Center"
-                    WidthRequest="100"
-                    HeightRequest="30"
-                    Margin="0,20,0,0" />
         </VerticalStackLayout>
 
     </ContentPage.Content>
