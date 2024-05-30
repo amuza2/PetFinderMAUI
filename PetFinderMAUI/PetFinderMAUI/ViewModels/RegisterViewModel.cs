@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using CommunityToolkit.Maui.Alerts;
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
@@ -97,8 +98,13 @@ internal class RegisterViewModel : INotifyPropertyChanged
         catch (Exception ex)
         {
             IsSignUpRunning = false;
-            await Application.Current.MainPage.DisplayAlert("Alert", ex.Message, "OK");
-            throw;
+            // Show a Snackbar if there's an error
+            var snackbar = new Snackbar
+            {
+                Text = ex.Message,
+                Duration = TimeSpan.FromSeconds(3)
+            };
+            await snackbar.Show();
         }
     }
 
