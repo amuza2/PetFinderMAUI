@@ -55,7 +55,8 @@
                 x:Name="LoginBtn"
                 Command="{Binding LoginBtn}"
                 HeightRequest="50"
-                Margin="0,20,0,0" />
+                Margin="0,20,0,0"
+                IsEnabled="{Binding IsLoginRunning, Converter={StaticResource InverseBoolConverter}}" />
         <!-- Register Button -->
         <Button Text="You don't have account? SignUp"
                 BackgroundColor="Transparent"

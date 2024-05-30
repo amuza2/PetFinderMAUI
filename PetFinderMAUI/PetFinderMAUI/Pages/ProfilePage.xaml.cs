@@ -19,6 +19,6 @@ public partial class ProfilePage : ContentPage
         // Navigate to the login page
         // await Navigation.PushAsync(new LoginPage());
         // Set the HomePage of the application to a new instance of LoginPage
-        Application.Current!.MainPage = new WelcomePage();
+        Application.Current!.MainPage = new LoginPage();
     }
 }

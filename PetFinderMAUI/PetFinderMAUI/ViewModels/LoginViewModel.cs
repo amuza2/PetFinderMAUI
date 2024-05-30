@@ -1,4 +1,6 @@
 using System.ComponentModel;
+using System.Globalization;
+using CommunityToolkit.Maui.Alerts;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using PetFinderMAUI.Pages;
@@ -102,9 +104,13 @@ internal class LoginViewModel : INotifyPropertyChanged
         catch (Exception ex)
         {
             IsLoginRunning = false;
-            // Show an alert if there's an error
-            await Application.Current!.MainPage!.DisplayAlert("Alert", ex.Message, "OK");
-            throw;
+            // Show a Snackbar if there's an error
+            var snackbar = new Snackbar
+            {
+                Text = ex.Message,
+                Duration = TimeSpan.FromSeconds(3)
+            };
+            await snackbar.Show();
         }
     }
 
@@ -119,5 +125,23 @@ internal class LoginViewModel : INotifyPropertyChanged
     private void RaisePropertyChanged(string v)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
+    }
+}
+
+public class InverseBoolConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is bool boolValue)
+        {
+            return !boolValue;
+        }
+
+        return value;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
     }
 }

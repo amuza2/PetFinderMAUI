@@ -2,9 +2,11 @@
 
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="using:PetFinderMAUI.ViewModels"
              x:Class="PetFinderMAUI.App">
     <Application.Resources>
         <ResourceDictionary>
+            <viewModels:InverseBoolConverter x:Key="InverseBoolConverter" />
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
