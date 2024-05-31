@@ -5,20 +5,48 @@
              BackgroundColor="{DynamicResource White}"
              x:Class="PetFinderMAUI.Pages.HomePage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+    <Grid BackgroundColor="{StaticResource Secondary}"
+          RowDefinitions="auto, auto, *"
+          ColumnDefinitions="auto, *">
 
-            <Label
-                x:Name="UserEmail"
-                Style="{StaticResource Headline}"
-                HorizontalOptions="CenterAndExpand"
-                SemanticProperties.HeadingLevel="Level1"
-                VerticalOptions="CenterAndExpand" />
-
-
+        <!--Pet Type Selection-->
+        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" VerticalOptions="Center" Margin="10,20,0,0">
+            <Label LineBreakMode="WordWrap" Text="Choose" HorizontalTextAlignment="Center" FontSize="16"/>
+            <Label Text=" an Animal" FontSize="16" HorizontalTextAlignment="Center"/>
         </VerticalStackLayout>
-    </ScrollView>
+
+        <ScrollView Margin="0,32,0,0"  Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" VerticalOptions="CenterAndExpand" Orientation="Horizontal">
+            <HorizontalStackLayout Padding="8,8,8,16" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Spacing="13" x:Name="PetTypes">
+                <Button x:Name="btnDog" Text="Dog" HeightRequest="40" CornerRadius="12" FontSize="14" WidthRequest="75" BackgroundColor="DarkViolet" >
+                    <Button.Shadow>
+                        <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+                <Button x:Name="btnCat" Text="Cat" CornerRadius="12" FontSize="14" WidthRequest="75">
+                    <Button.Shadow>
+                        <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+                <Button x:Name="btnRabbit" Text="Rabbit" CornerRadius="12" FontSize="14" WidthRequest="75">
+                    <Button.Shadow>
+                        <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+                <Button x:Name="btnTurtle" Text="Turtle" CornerRadius="12" FontSize="14" WidthRequest="75">
+                    <Button.Shadow>
+                        <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+                <Button x:Name="btnDuck" Text="Duck" CornerRadius="12" FontSize="14" WidthRequest="75">
+                    <Button.Shadow>
+                        <Shadow Offset="00,10" Radius="20" Opacity="0.2" />
+                    </Button.Shadow>
+                </Button>
+            </HorizontalStackLayout>
+        </ScrollView>
+
+
+
+    </Grid>
 
 </ContentPage>
