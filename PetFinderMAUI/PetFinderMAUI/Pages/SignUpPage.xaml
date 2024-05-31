@@ -71,11 +71,11 @@
         <!-- Sign Up Button -->
         <Button Text="Sign up"
                 TextColor="White"
-                CornerRadius="20"
+                CornerRadius="15"
                 x:Name="SignUpBtn"
                 Command="{Binding SignUpBtn}"
                 HorizontalOptions="Center"
-                WidthRequest="200"
+                WidthRequest="320"
                 HeightRequest="50"
                 Margin="0,20,0,0"
                 IsEnabled="{Binding IsSignUpRunning, Converter={StaticResource InverseBoolConverter}}" />
