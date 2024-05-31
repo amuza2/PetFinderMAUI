@@ -6,12 +6,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pages="clr-namespace:PetFinderMAUI.Pages"
     xmlns:m="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
-    Shell.FlyoutBehavior="Disabled"
+    FlyoutBehavior="Disabled"
+    BackgroundColor="White"
+    Shell.TabBarBackgroundColor="Transparent"
+    Shell.TabBarUnselectedColor="DimGray"
     Title="PetFinderMAUI">
 
 
     <TabBar>
-
         <ShellContent
             Title="Home"
             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Home}}"

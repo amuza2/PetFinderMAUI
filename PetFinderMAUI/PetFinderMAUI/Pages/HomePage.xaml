@@ -2,23 +2,34 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             BackgroundColor="{DynamicResource White}"
+             xmlns:views="clr-namespace:PetFinderMAUI.Views"
              x:Class="PetFinderMAUI.Pages.HomePage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
-            <Label
-                x:Name="UserEmail"
-                Style="{StaticResource Headline}"
-                HorizontalOptions="CenterAndExpand"
-                SemanticProperties.HeadingLevel="Level1"
-                VerticalOptions="CenterAndExpand" />
+        <!-- User Profile and Filter Bar -->
+        <StackLayout Orientation="Horizontal" Padding="10">
+            <Label Text="Filter Bar Placeholder" HorizontalOptions="StartAndExpand" />
+            <Frame HeightRequest="50" WidthRequest="50" CornerRadius="100" Padding="0" HorizontalOptions="End">
+                <Image Source="https://placebear.com/g/48/48" />
+            </Frame>
+        </StackLayout>
 
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <!-- Pet Posts -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Pets}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:PetCard />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 
 </ContentPage>
