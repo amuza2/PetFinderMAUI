@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:PetFinderMAUI.Views"
+             xmlns:m="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
              x:Class="PetFinderMAUI.Pages.HomePage">
 
     <Grid>
@@ -13,23 +14,45 @@
 
         <!-- User Profile and Filter Bar -->
         <StackLayout Orientation="Horizontal" Padding="10">
-            <Label Text="Filter Bar Placeholder" HorizontalOptions="StartAndExpand" />
+            <Label Text="Hello 👋" Margin="0,5,0,0" FontFamily="NunitoBold" FontSize="22"
+                   HorizontalOptions="StartAndExpand" />
             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="100" Padding="0" HorizontalOptions="End">
                 <Image Source="https://placebear.com/g/48/48" />
             </Frame>
         </StackLayout>
 
         <!-- Pet Posts -->
-        <CollectionView Grid.Row="1" ItemsSource="{Binding Pets}">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" Span="2" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <views:PetCard />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <RefreshView Grid.Row="1" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+            <CollectionView ItemsSource="{Binding Pets}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <views:PetCard />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <ActivityIndicator HeightRequest="20" WidthRequest="20" Grid.Row="0" IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <ImageButton
+            Grid.Row="1"
+            x:Name="Fab"
+            Source="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Add}}"
+            BackgroundColor="{DynamicResource Primary}"
+            Clicked="OnFabClicked"
+            CornerRadius="28"
+            WidthRequest="56"
+            HeightRequest="56"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="0,0,16,16"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            AbsoluteLayout.LayoutBounds=".95,.95,80,80" />
+
     </Grid>
 
 </ContentPage>

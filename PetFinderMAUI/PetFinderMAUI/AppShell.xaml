@@ -10,6 +10,7 @@
     BackgroundColor="White"
     Shell.TabBarBackgroundColor="Transparent"
     Shell.TabBarUnselectedColor="DimGray"
+    Shell.NavBarIsVisible="false"
     Title="PetFinderMAUI">
 
 

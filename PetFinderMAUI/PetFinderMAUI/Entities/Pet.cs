@@ -7,5 +7,6 @@ namespace PetFinderMAUI.Entities
         public string? PetDescription { get; set; }
         public string? PetImage { get; set; }
         public bool IsLiked { get; set; }
+        public string? PublisherId { get; set; }
     }
 }
