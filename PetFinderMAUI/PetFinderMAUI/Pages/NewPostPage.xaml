@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:m="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+             x:Class="PetFinderMAUI.Pages.NewPostPage">
+
+    <StackLayout Padding="10">
+
+        <Image Source="{Binding SelectedImageSource}" WidthRequest="120"
+               HeightRequest="120" Aspect="AspectFill" Margin="5" />
+
+        <material:TextField Title="Pet Name"
+                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Pets}}"
+                            Margin="0,10,0,0"
+                            x:Name="PetNameEntry"
+                            Text="{Binding PetName}"
+                            HeightRequest="50"
+                            AllowClear="True" />
+        <material:TextField Title="Pet Description"
+                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Description}}"
+                            Margin="0,10,0,0"
+                            x:Name="PetDescriptionEditor"
+                            Text="{Binding PetDescription}"
+                            HeightRequest="50"
+                            AllowClear="True" />
+
+        <Button x:Name="PickImageButton"
+                HorizontalOptions="Center"
+                WidthRequest="320"
+                HeightRequest="50"
+                Margin="0,20,0,0"
+                Text="Choose pet photo"
+                Clicked="OnPickImageButtonClicked" />
+        <Button x:Name="PostButton" HorizontalOptions="Center"
+                WidthRequest="320"
+                HeightRequest="50"
+                Margin="0,20,0,0"
+                Text="Post"
+                Clicked="OnPostButtonClicked" />
+    </StackLayout>
+
+</ContentPage>

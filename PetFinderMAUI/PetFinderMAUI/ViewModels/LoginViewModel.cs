@@ -85,8 +85,12 @@ internal class LoginViewModel : INotifyPropertyChanged
             var content = await auth.GetFreshAuthAsync();
             var serializedContent = JsonConvert.SerializeObject(content);
 
-            // Save the token to the preferences
+            var userId = auth.User.LocalId; // This is the localId of the user
+
+
+            // Save the token and userId to the preferences
             Preferences.Set("FreshFirebaseToken", serializedContent);
+            Preferences.Set("userId", userId);
 
             // Save the user's credentials in secure storage
             await SecureStorage.SetAsync("username", UserName);

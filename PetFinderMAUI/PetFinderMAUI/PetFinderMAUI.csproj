@@ -75,7 +75,7 @@
         <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foregroundicon.svg" Resize="True" BaseSize="128,128"/>
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\splash.svg" Resize="True" BaseSize="128,128" Color="#416D6C"/>
+        <MauiSplashScreen Include="Resources\Splash\foregroundicon.svg" Resize="True" BaseSize="128,128" Color="#416D6C"/>
         <!-- Images -->
         <MauiImage Include="Resources\Images\*"/>
         <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>

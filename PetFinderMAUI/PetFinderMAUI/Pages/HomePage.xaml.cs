@@ -12,4 +12,10 @@ public partial class HomePage : ContentPage
 
         // UserEmail.Text = "Welcome " + GlobalHelper.GetUserEmail();
     }
+
+    private async void OnFabClicked(object sender, EventArgs e)
+    {
+        // Navigate to the NewPostPage when the FloatingActionButton is clicked
+        await Navigation.PushAsync(new NewPostPage());
+    }
 }

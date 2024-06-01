@@ -1,59 +1,94 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
+using PetFinderMAUI.Entities;
 using Firebase.Database;
 using Firebase.Database.Query;
-using PetFinderMAUI.Entities;
 
-namespace PetFinderMAUI.ViewModels;
-
-public class PetViewModel : INotifyPropertyChanged
+namespace PetFinderMAUI.ViewModels
 {
-    private static readonly FirebaseClient _firebaseClient = new("https://petcare-1d322-default-rtdb.firebaseio.com/");
-
-    private ObservableCollection<Pet> _pets;
-
-    public PetViewModel()
+    public class PetViewModel : INotifyPropertyChanged
     {
-        Pets = new ObservableCollection<Pet>();
-        LoadPets();
-    }
+        private static readonly FirebaseClient _firebaseClient =
+            new("https://petcare-1d322-default-rtdb.firebaseio.com/");
 
-    public ObservableCollection<Pet> Pets
-    {
-        get => _pets;
-        set
+        private bool _isLoading;
+        private bool _isRefreshing;
+
+        private ObservableCollection<Pet> _pets;
+
+        public PetViewModel()
         {
-            _pets = value;
-            RaisePropertyChanged("Pets");
+            Pets = new ObservableCollection<Pet>();
+            RefreshCommand = new Command(async () => await LoadPets());
+            LoadPets();
         }
-    }
 
-    public event PropertyChangedEventHandler PropertyChanged;
-
-    private async void LoadPets()
-    {
-        var pets = await _firebaseClient
-            .Child("Pets")
-            .OnceAsync<Pet>();
-
-        foreach (var pet in pets)
+        public ObservableCollection<Pet> Pets
         {
-            pet.Object.PetId = pet.Key; // Set PetId to the key from Firebase
-            Pets.Add(pet.Object);
+            get => _pets;
+            set
+            {
+                _pets = value;
+                RaisePropertyChanged();
+            }
         }
-    }
 
-    public async void LikePet(Pet pet)
-    {
-        pet.IsLiked = !pet.IsLiked;
-        await _firebaseClient
-            .Child("Pets")
-            .Child(pet.PetId) // Use PetId as the key
-            .PutAsync(pet);
-    }
+        public bool IsRefreshing
+        {
+            get => _isRefreshing;
+            set
+            {
+                _isRefreshing = value;
+                RaisePropertyChanged();
+            }
+        }
 
-    private void RaisePropertyChanged(string propertyName)
-    {
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public bool IsLoading
+        {
+            get => _isLoading;
+            set
+            {
+                _isLoading = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public ICommand RefreshCommand { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private async Task LoadPets()
+        {
+            IsRefreshing = true;
+
+            var pets = await _firebaseClient
+                .Child("Pets")
+                .OnceAsync<Pet>();
+
+            Pets.Clear();
+            foreach (var pet in pets)
+            {
+                pet.Object.PetId = pet.Key; // Set PetId to the key from Firebase
+                Pets.Add(pet.Object);
+            }
+
+            IsRefreshing = false;
+        }
+
+        public async void LikePet(Pet pet)
+        {
+            pet.IsLiked = !pet.IsLiked;
+            await _firebaseClient
+                .Child("Pets")
+                .Child(pet.PetId) // Use PetId as the key
+                .PutAsync(pet);
+        }
+
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }
