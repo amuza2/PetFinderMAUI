@@ -29,6 +29,7 @@
                             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Email}}"
                             Margin="0,10,0,0"
                             HeightRequest="50"
+                            FontFamily="NunitoRegular"
                             Text="{Binding UserName}"
                             AllowClear="True" />
 
@@ -38,6 +39,7 @@
                             Margin="0,10,0,0"
                             HeightRequest="50"
                             x:Name="PasswordField"
+                            FontFamily="NunitoRegular"
                             Text="{Binding UserPassword}"
                             IsPassword="True">
             <material:TextField.Attachments>
@@ -51,35 +53,40 @@
                 TextColor="White"
                 CornerRadius="15"
                 HorizontalOptions="Center"
+                FontFamily="NunitoRegular"
                 WidthRequest="320"
                 x:Name="LoginBtn"
                 Command="{Binding LoginBtn}"
                 HeightRequest="50"
                 Margin="0,20,0,0"
                 IsEnabled="{Binding IsLoginRunning, Converter={StaticResource InverseBoolConverter}}" />
-       
+
         <!-- Forgot Password Link -->
         <Label Text="Forgot password?"
                HorizontalOptions="End"
+               FontFamily="NunitoRegular"
                TextColor="#416D6C"
                Margin="0,8,6,30" />
-        
-        <Label HorizontalOptions="Center" Text="ــــــــــــــــــــــــــــــــــــــــــــــ Or ــــــــــــــــــــــــــــــــــــــــــــــ"/>
-        
+
+        <Label HorizontalOptions="Center" FontFamily="NunitoRegular"
+               Text="ــــــــــــــــــــــــــــــــــــــــــــــ Or ــــــــــــــــــــــــــــــــــــــــــــــ" />
+
         <ActivityIndicator x:Name="LoginActivityIndicator"
                            Margin="0,10,0,0"
+                           HeightRequest="30" WidthRequest="30"
                            IsRunning="{Binding IsLoginRunning}"
                            IsVisible="{Binding IsLoginRunning}" />
-        
+
         <!-- Register Button -->
         <Button Text="You don't have account? SignUp"
                 BackgroundColor="Transparent"
                 TextColor="Black"
                 BorderWidth="0"
+                FontFamily="NunitoRegular"
                 HorizontalOptions="Center"
                 x:Name="RegisterBtn"
                 Command="{Binding RegisterBtn}"
                 Margin="0,20,0,0" />
-        
+
     </StackLayout>
 </ContentPage>

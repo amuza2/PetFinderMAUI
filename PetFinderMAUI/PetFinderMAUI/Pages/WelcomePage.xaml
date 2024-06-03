@@ -25,16 +25,16 @@
 
         <StackLayout Orientation="Vertical" VerticalOptions="EndAndExpand">
             <!-- Login Button -->
-            <Button x:Name="btnLogin"
+            <Button x:Name="GetStartedBtn"
                     Text="Get Started"
-
+                    FontFamily="NunitoRegular"
                     TextColor="White"
                     CornerRadius="15"
                     HorizontalOptions="Center"
                     WidthRequest="300"
                     HeightRequest="50"
                     Margin="0,155,0,0"
-                    Clicked="btnLogin_Clicked" />
+                    Clicked="GetStartedBtn_Clicked" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

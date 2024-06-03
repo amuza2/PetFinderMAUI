@@ -5,13 +5,14 @@ using System.Windows.Input;
 using PetFinderMAUI.Entities;
 using Firebase.Database;
 using Firebase.Database.Query;
+using PetFinderMAUI.Utils;
 
 namespace PetFinderMAUI.ViewModels
 {
     public class PetViewModel : INotifyPropertyChanged
     {
         private static readonly FirebaseClient _firebaseClient =
-            new("https://petcare-1d322-default-rtdb.firebaseio.com/");
+            new(Configs.FirebaseDbUrl);
 
         private bool _isLoading;
         private bool _isRefreshing;

@@ -10,11 +10,12 @@ namespace PetFinderMAUI.ViewModels;
 
 internal class RegisterViewModel : INotifyPropertyChanged
 {
-    private static readonly FirebaseClient _firebaseClient = new("https://petcare-1d322-default-rtdb.firebaseio.com/");
+    private static readonly FirebaseClient _firebaseClient =
+        new(Configs.FirebaseDbUrl);
 
     private readonly INavigation _navigation;
 
-    private readonly string webApiKey = "AIzaSyDHyJAIn5P56uvAmFcSoq7M_MsP_azTmn0";
+    private readonly string webApiKey = Configs.WebApiKey;
 
     // Loading animation
     private bool _isSignUpRunning;
@@ -24,6 +25,8 @@ internal class RegisterViewModel : INotifyPropertyChanged
     public RegisterViewModel(INavigation navigation)
     {
         _navigation = navigation;
+
+
         SignUpBtn = new Command(RegisterUserTappedAsync);
     }
 

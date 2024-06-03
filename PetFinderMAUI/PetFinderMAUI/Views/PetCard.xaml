@@ -15,9 +15,9 @@
             <Frame HeightRequest="200" WidthRequest="180" CornerRadius="10" Padding="0" Margin="5,0,5,5">
                 <Image x:Name="PetImage" Aspect="AspectFill" Source="{Binding PetImage}" />
             </Frame>
-            <Label x:Name="PetName" TextColor="Black" Text="{Binding PetName}" FontSize="Large" FontAttributes="Bold" />
-            <Label x:Name="PetDescription" TextColor="DimGray" Text="{Binding PetDescription}" FontSize="Small" />
-            <Button x:Name="LikeButton" Text="Like" HorizontalOptions="End" Clicked="OnLikeButtonClicked"
+            <Label x:Name="PetName" TextColor="Black" Text="{Binding PetName}"  FontFamily="NunitoRegular" FontSize="Large" FontAttributes="Bold" />
+            <Label x:Name="PetDescription" TextColor="DimGray"  FontFamily="NunitoRegular" Text="{Binding PetDescription}" FontSize="Small" />
+            <Button x:Name="LikeButton" Text="Like"  FontFamily="NunitoRegular" HorizontalOptions="End" Clicked="OnLikeButtonClicked"
                     Margin="0,5,0,0" />
         </StackLayout>
     </Frame>

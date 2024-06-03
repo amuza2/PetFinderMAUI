@@ -14,7 +14,7 @@
 
         <!-- User Profile and Filter Bar -->
         <StackLayout Orientation="Horizontal" Padding="10">
-            <Label Text="Hello 👋" Margin="0,5,0,0" FontFamily="NunitoBold" FontSize="22"
+            <Label Text="Hello 👋" Margin="5" FontFamily="NunitoBold" FontSize="22"
                    HorizontalOptions="StartAndExpand" />
             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="100" Padding="0" HorizontalOptions="End">
                 <Image Source="https://placebear.com/g/48/48" />
