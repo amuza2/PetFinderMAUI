@@ -4,6 +4,7 @@ using CommunityToolkit.Maui.Alerts;
 using Firebase.Auth;
 using Newtonsoft.Json;
 using PetFinderMAUI.Pages;
+using PetFinderMAUI.Utils;
 
 namespace PetFinderMAUI.ViewModels;
 
@@ -22,7 +23,7 @@ internal class LoginViewModel : INotifyPropertyChanged
     private string userPassword;
 
     // Firebase web API key
-    public string webApiKey = "AIzaSyDHyJAIn5P56uvAmFcSoq7M_MsP_azTmn0";
+    private readonly string webApiKey = Configs.WebApiKey;
 
     // Constructor for the ViewModel
     public LoginViewModel(INavigation navigation)
@@ -108,20 +109,28 @@ internal class LoginViewModel : INotifyPropertyChanged
         catch (Exception ex)
         {
             IsLoginRunning = false;
-            // Show a Snackbar if there's an error
-            var snackbar = new Snackbar
-            {
-                Text = ex.Message,
-                Duration = TimeSpan.FromSeconds(3)
-            };
-            await snackbar.Show();
+
+            ShowSnackBar(ex.Message.Contains("INVALID_LOGIN_CREDENTIALS")
+                ? "Email or password is incorrect"
+                : "Unknown error");
         }
+    }
+
+    private static async void ShowSnackBar(string text)
+    {
+        var snackbar = new Snackbar
+        {
+            Text = text,
+            Duration = TimeSpan.FromSeconds(3)
+        };
+        await snackbar.Show();
     }
 
     // Method for the Register button
     private async void RegisterBtnTappedAsync(object obj)
     {
         // Navigate to the SignUp Page
+
         await _navigation.PushAsync(new SignUpPage());
     }
 

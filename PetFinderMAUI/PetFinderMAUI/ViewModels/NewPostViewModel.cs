@@ -4,12 +4,15 @@ using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;
 using PetFinderMAUI.Entities;
+using PetFinderMAUI.Utils;
 
 namespace PetFinderMAUI.ViewModels;
 
 public class NewPostViewModel : INotifyPropertyChanged
 {
-    private static readonly FirebaseClient _firebaseClient = new("https://petcare-1d322-default-rtdb.firebaseio.com/");
+    private static readonly FirebaseClient _firebaseClient =
+        new(Configs.FirebaseDbUrl);
+
     private string _petDescription;
     private string _petImageUrl;
     private string _petName;
@@ -88,7 +91,7 @@ public class NewPostViewModel : INotifyPropertyChanged
         var imageName = Guid.NewGuid().ToString();
 
         // Use FirebaseStorage.net to upload the image
-        var storageImage = await new FirebaseStorage("petcare-1d322.appspot.com")
+        var storageImage = await new FirebaseStorage(Configs.FirebaseStorageUrl)
             .Child("petsImages")
             .Child($"{imageName}{fileExtension}")
             .PutAsync(stream);

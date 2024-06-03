@@ -108,9 +108,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="obj\"/>
         <Folder Include="Resources\Images\Icons\"/>
-        <Folder Include="Resources\Images\Pets\"/>
     </ItemGroup>
 
     <ItemGroup>
