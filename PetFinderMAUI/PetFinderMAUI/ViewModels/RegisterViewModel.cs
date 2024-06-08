@@ -5,6 +5,7 @@ using Firebase.Database;
 using Firebase.Database.Query;
 using Newtonsoft.Json;
 using PetFinderMAUI.Utils;
+using User = PetFinderMAUI.Entities.User;
 
 namespace PetFinderMAUI.ViewModels;
 

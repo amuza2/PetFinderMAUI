@@ -26,12 +26,7 @@
             ContentTemplate="{DataTemplate pages:FavoritePage}"
             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Favorite}}"
             Route="FavoritePage" />
-
-        <ShellContent
-            Title="Settings"
-            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Settings}}"
-            ContentTemplate="{DataTemplate pages:SettingsPage}"
-            Route="SettingsPage" />
+        
         <ShellContent
             Title="Account"
             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Person_2}}"

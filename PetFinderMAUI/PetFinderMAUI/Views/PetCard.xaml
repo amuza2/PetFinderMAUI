@@ -2,7 +2,9 @@
 
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PetFinderMAUI.Views.PetCard">
+             x:Class="PetFinderMAUI.Views.PetCard"
+             Padding="2"
+             InputTransparent="True">
 
     <Frame BorderColor="LightGray" CornerRadius="10" Padding="10" Margin="5">
         <!-- <Frame.Background> -->
@@ -15,10 +17,15 @@
             <Frame HeightRequest="200" WidthRequest="180" CornerRadius="10" Padding="0" Margin="5,0,5,5">
                 <Image x:Name="PetImage" Aspect="AspectFill" Source="{Binding PetImage}" />
             </Frame>
-            <Label x:Name="PetName" TextColor="Black" Text="{Binding PetName}"  FontFamily="NunitoRegular" FontSize="Large" FontAttributes="Bold" />
-            <Label x:Name="PetDescription" TextColor="DimGray"  FontFamily="NunitoRegular" Text="{Binding PetDescription}" FontSize="Small" />
-            <Button x:Name="LikeButton" Text="Like"  FontFamily="NunitoRegular" HorizontalOptions="End" Clicked="OnLikeButtonClicked"
-                    Margin="0,5,0,0" />
+            <Label x:Name="PetName" TextColor="Black" Text="{Binding PetName}" FontFamily="NunitoRegular"
+                   FontSize="Large" FontAttributes="Bold" />
+            <Label x:Name="PetDescription" TextColor="DimGray" FontFamily="NunitoRegular"
+                   Text="{Binding PetDescription}" FontSize="Small" />
+            <!-- <Button x:Name="LikeButton" Text="Like" FontFamily="NunitoRegular" HorizontalOptions="End" -->
+            <!--         Clicked="OnLikeButtonClicked" -->
+            <!--         Margin="0,5,0,0" InputTransparent="False"/> -->
+            <Label TextColor="Green" HorizontalOptions="End" Margin="0,5,0,0" Text="Available"
+                   FontFamily="NunitoRegular" FontSize="14" />
         </StackLayout>
     </Frame>
 

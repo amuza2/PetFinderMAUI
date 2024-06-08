@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <style name="Maui.MainTheme" parent="Theme.Material3.DayNight"/>
+
+    <color name="ListViewSelected">#FFFFFFFF</color>
+    <color name="ListViewHighlighted">#FFFFFFFF</color>
+</resources>

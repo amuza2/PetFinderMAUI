@@ -1,12 +1,11 @@
-using System;
-using PetFinderMAUI.ViewModels;
 using PetFinderMAUI.Entities;
+using PetFinderMAUI.ViewModels;
 
 namespace PetFinderMAUI.Views;
 
 public partial class PetCard : ContentView
 {
-    private PetViewModel _viewModel;
+    private readonly PetViewModel _viewModel;
 
     public PetCard()
     {
@@ -17,9 +16,6 @@ public partial class PetCard : ContentView
 
     private void OnLikeButtonClicked(object sender, EventArgs e)
     {
-        if (BindingContext is Pet pet)
-        {
-            _viewModel.LikePet(pet);
-        }
+        if (BindingContext is Pet pet) _viewModel.LikePet(pet);
     }
 }
