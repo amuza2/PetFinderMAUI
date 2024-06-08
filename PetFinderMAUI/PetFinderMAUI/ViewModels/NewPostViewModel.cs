@@ -1,5 +1,4 @@
 using System.ComponentModel;
-using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Database.Query;
 using Firebase.Storage;

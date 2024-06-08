@@ -14,18 +14,18 @@
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="20">
-            <Label Text="my account" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
-            <Label Text="Jesse Smith" FontFamily="PoppinsBold" FontSize="20" />
+            <Label Text="My account" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
+            <Label Text="👤 Jesse Smith" FontFamily="PoppinsBold" FontSize="20" />
             <BoxView /><Label Text="Edit Account Details" /><BoxView />
             <ContentView HeightRequest="20" />
 
-            <Label Text="APP SETTINGS" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
+            <Label Text="🎛️ APP SETTINGS" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
             <BoxView />
-            <Label Text="Push Notifications" /><BoxView />
-            <Label Text="Display Settings" /><BoxView />
+            <Label Text="🔔 Push Notifications" /><BoxView />
+            <Label Text="🔲 Display Settings" /><BoxView />
             <ContentView HeightRequest="20" />
 
-            <Label Text="SUPPORT" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
+            <Label Text="✉️ SUPPORT" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
             <BoxView />
             <Label Text="Frequently Asked Questions" /><BoxView />
             <Label Text="Report a Bug" /><BoxView />
@@ -33,7 +33,7 @@
             <ContentView HeightRequest="40" />
 
             <BoxView />
-            <Label Text="Log Out">
+            <Label Text="🔴 Log Out">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnLogoutClicked" NumberOfTapsRequired="1" />
                 </Label.GestureRecognizers>

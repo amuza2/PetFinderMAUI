@@ -14,6 +14,9 @@ internal class LoginViewModel : INotifyPropertyChanged
     // Navigation interface
     private readonly INavigation _navigation;
 
+    // Firebase web API key
+    private readonly string webApiKey = Configs.WebApiKey;
+
     // Loading animation
     private bool _isLoginRunning;
 
@@ -21,9 +24,6 @@ internal class LoginViewModel : INotifyPropertyChanged
     private string userName;
 
     private string userPassword;
-
-    // Firebase web API key
-    private readonly string webApiKey = Configs.WebApiKey;
 
     // Constructor for the ViewModel
     public LoginViewModel(INavigation navigation)
@@ -145,10 +145,7 @@ public class InverseBoolConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        if (value is bool boolValue)
-        {
-            return !boolValue;
-        }
+        if (value is bool boolValue) return !boolValue;
 
         return value;
     }

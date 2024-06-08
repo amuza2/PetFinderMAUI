@@ -6,8 +6,6 @@
              NavigationPage.HasNavigationBar="False"
              xmlns:m="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
              xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
-             xmlns:validation="clr-namespace:InputKit.Shared.Validations;assembly=InputKit.Maui"
-             xmlns:input="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
              Title="LoginPage">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
         <!-- Welcome Back TextF -->

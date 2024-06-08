@@ -6,9 +6,7 @@
     <ContentPage.Content>
         <VerticalStackLayout
             Padding="30,0"
-            Spacing="25">
-
-        </VerticalStackLayout>
+            Spacing="25" />
 
     </ContentPage.Content>
 </ContentPage>

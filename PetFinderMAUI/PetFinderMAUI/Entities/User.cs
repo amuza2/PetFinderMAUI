@@ -1,4 +1,4 @@
-namespace PetFinderMAUI;
+namespace PetFinderMAUI.Entities;
 
 public class User
 {
