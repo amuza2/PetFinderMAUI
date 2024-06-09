@@ -9,17 +9,17 @@
              Title="LoginPage">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Padding="20">
         <!-- Welcome Back TextF -->
-        <Label Text="WELCOME BACK !"
+        <Label Text="Welcome back !"
                FontSize="24"
                HorizontalOptions="Center"
                Margin="0,20,0,0" />
 
         <!-- Illustration Image -->
-        <Image Source="dotnet_bot.png"
-               WidthRequest="300"
-               HeightRequest="200"
+        <Image Source="loginilust1.png"
+               WidthRequest="250"
+               HeightRequest="250"
                HorizontalOptions="Center"
-               Margin="0,20,0,0" />
+               Margin="0,20,0,5" />
 
 
         <!-- Email  Entry -->

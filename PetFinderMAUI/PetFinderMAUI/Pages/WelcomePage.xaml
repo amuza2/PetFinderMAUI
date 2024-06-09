@@ -2,15 +2,18 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              x:Class="PetFinderMAUI.Pages.WelcomePage"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#F5F5FA">
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <!-- Illustration Image -->
-        <Image Source="ilust.png"
-               Aspect="AspectFill"
+        <controls:SKLottieView 
+               Source="womancradlingcat.json"
                WidthRequest="280"
-               HeightRequest="281"
+               HeightRequest="280"
+               RepeatCount="-1"
+               RepeatMode="Restart"
                HorizontalOptions="CenterAndExpand"
                Margin="0,-10,0,40" />
 
