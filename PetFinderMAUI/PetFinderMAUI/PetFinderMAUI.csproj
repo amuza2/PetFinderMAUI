@@ -73,6 +73,7 @@
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foregroundicon.svg" Resize="True" BaseSize="128,128"/>
+        <MauiImage Include="Resources\Raw\womancradlingcat.json" />
 
         <!-- Splash Screen -->
         <MauiSplashScreen Include="Resources\Splash\foregroundicon.svg" Resize="True" BaseSize="128,128" Color="#416D6C"/>
@@ -102,6 +103,7 @@
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0"/>
+        <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0" />
         <PackageReference Include="The49.Maui.BottomSheet" Version="8.0.3" />
         <PackageReference Include="UraniumUI" Version="2.8.1"/>
         <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.8.1"/>

@@ -12,16 +12,16 @@
         <!-- Create Your Account Text -->
         <Label Text="Create new account"
                FontSize="24"
-               HeightRequest="20" WidthRequest="20"
+               HeightRequest="30"
                HorizontalOptions="Center"
-               Margin="0,20,0,0" />
+               Margin="0,20,0,5" />
 
         <!-- Illustration Image -->
-        <Image Source="dotnet_bot.png"
-               WidthRequest="300"
-               HeightRequest="200"
+        <Image Source="loginilust1.png"
+               WidthRequest="250"
+               HeightRequest="250"
                HorizontalOptions="Center"
-               Margin="0,20,0,0" />
+               Margin="0,20,0,5" />
 
         <!-- Full Name Entry -->
         <material:TextField Title="Full Name"
