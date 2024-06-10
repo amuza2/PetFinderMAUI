@@ -16,18 +16,19 @@ internal class RegisterViewModel : INotifyPropertyChanged
 
     private readonly INavigation _navigation;
 
-    private readonly string webApiKey = Configs.WebApiKey;
+    private readonly string _webApiKey = Configs.WebApiKey;
 
     // Loading animation
     private bool _isSignUpRunning;
+    
     private string _signUpEmail;
+    private string _signUpFullName;
     private string _signUpPassword;
+    private string _signUpConfirmPassword;
 
     public RegisterViewModel(INavigation navigation)
     {
         _navigation = navigation;
-
-
         SignUpBtn = new Command(RegisterUserTappedAsync);
     }
 
@@ -38,6 +39,15 @@ internal class RegisterViewModel : INotifyPropertyChanged
         {
             _isSignUpRunning = value;
             RaisePropertyChanged("IsSignUpRunning");
+        }
+    }
+    public string SignUpFullName
+    {
+        get => _signUpFullName;
+        set
+        {
+            _signUpFullName = value;
+            RaisePropertyChanged("SignUpFullName");
         }
     }
 
@@ -60,6 +70,16 @@ internal class RegisterViewModel : INotifyPropertyChanged
             RaisePropertyChanged("SignUpPassword");
         }
     }
+    public string SignUpConfirmPassword
+    {
+        get => _signUpConfirmPassword;
+        set
+        {
+            _signUpConfirmPassword = value;
+            RaisePropertyChanged("SignUpConfirmPassword");
+        }
+    }
+    
 
     public Command SignUpBtn { get; }
 
@@ -76,8 +96,8 @@ internal class RegisterViewModel : INotifyPropertyChanged
         {
             IsSignUpRunning = true;
 
-            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
-            var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(SignUpEmail, SignUpPassword);
+            var authProvider = new FirebaseAuthProvider(new FirebaseConfig(_webApiKey));
+            var auth = await authProvider.CreateUserWithEmailAndPasswordAsync(SignUpEmail.Trim(), SignUpPassword.Trim());
             var token = auth.FirebaseToken;
             var userId = auth.User.LocalId;
             if (token != null)
@@ -118,8 +138,7 @@ internal class RegisterViewModel : INotifyPropertyChanged
         {
             var userInfo = new User
             {
-                FirstName = "not set",
-                LastName = "not set",
+                FullName = SignUpFullName.Trim(),
                 IsAdmin = false,
                 PhoneNumber = "not set",
                 Address = "not set",

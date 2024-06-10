@@ -30,6 +30,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -44,8 +45,33 @@
             </Frame>
         </StackLayout>
 
+        <Grid Grid.Row="1">
+            <Frame Padding="10" CornerRadius="10" Margin="5,0,5,0" HasShadow="True">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{DynamicResource Primary}" Offset="0.1" />
+                        <GradientStop Color="LightBlue" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="0" VerticalOptions="Center">
+                        <Label Text="Let's find a pet for you 🐥" FontAttributes="Bold" FontFamily="NunitoRegular"
+                               TextColor="White" FontSize="18" Margin="6,6,6,10"/>
+                        <Label Text="you can also post a pet you have here, Good luck ❤️" Margin="6,0,6,0" FontFamily="NunitoRegular"
+                               TextColor="White" FontSize="16" />
+                    </StackLayout>
+                    <Image Grid.Column="1" Source="scandi311.png" WidthRequest="100" Aspect="AspectFill" />
+                </Grid>
+            </Frame>
+        </Grid>
+
+
         <!-- Pet Posts -->
-        <RefreshView Grid.Row="1" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
+        <RefreshView Grid.Row="2" IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCommand}">
             <CollectionView ItemsSource="{Binding Pets}"
                             SelectionMode="Single"
                             SelectionChanged="OnCollectionViewSelectionChanged">
@@ -66,12 +92,13 @@
                            IsVisible="{Binding IsLoading}" HorizontalOptions="Center" VerticalOptions="Center" />
 
         <ImageButton
-            Grid.Row="1"
+            Grid.Row="2"
             x:Name="Fab"
-            Source="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Add}}"
-            BackgroundColor="{DynamicResource Primary}"
+            Source="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Add_circle },Color={DynamicResource Primary}}"
+            BackgroundColor="Transparent"
             Clicked="OnFabClicked"
             CornerRadius="28"
+            Opacity="50"
             WidthRequest="56"
             HeightRequest="56"
             HorizontalOptions="End"
