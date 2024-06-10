@@ -105,6 +105,12 @@ public class NewPostViewModel : INotifyPropertyChanged
         // Create a new Pet object
         var pet = new Pet
         {
+            PetAge = "",
+            PetVaccinated = false,
+            PetBreed = "",
+            PetCategory = "",
+            PetFavourite = false,
+            PetStatus = "",
             PetName = PetName,
             PetDescription = PetDescription,
             PetImage = PetImageUrl,
