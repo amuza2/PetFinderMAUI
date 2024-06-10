@@ -83,7 +83,7 @@ public class PetViewModel : INotifyPropertyChanged
 
     public async void LikePet(Pet pet)
     {
-        pet.IsLiked = !pet.IsLiked;
+        pet.PetFavourite = !pet.PetFavourite;
         await _firebaseClient
             .Child("Pets")
             .Child(pet.PetId) // Use PetId as the key
