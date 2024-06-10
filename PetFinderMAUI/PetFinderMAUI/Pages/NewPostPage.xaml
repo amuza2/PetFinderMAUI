@@ -8,13 +8,15 @@
 
     <StackLayout Padding="10">
 
-        <Image Source="{Binding SelectedImageSource}" WidthRequest="120"
-               HeightRequest="120" Aspect="AspectFill" Margin="5" />
+        <Frame BorderColor="LightSlateGrey" WidthRequest="120" HeightRequest="120" CornerRadius="10" Padding="0">
+            <Image Source="{Binding SelectedImageSource}" Aspect="AspectFill" />
+        </Frame>
 
         <material:TextField Title="Pet Name"
                             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Pets}}"
                             Margin="0,10,0,0"
                             x:Name="PetNameEntry"
+                            WidthRequest="320"
                             Text="{Binding PetName}"
                             FontFamily="NunitoRegular"
                             HeightRequest="50"
@@ -23,6 +25,7 @@
                             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Description}}"
                             Margin="0,10,0,0"
                             x:Name="PetDescriptionEditor"
+                            WidthRequest="320"
                             Text="{Binding PetDescription}"
                             FontFamily="NunitoRegular"
                             HeightRequest="50"

@@ -72,11 +72,11 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\foregroundicon.svg" Resize="True" BaseSize="128,128"/>
+        <MauiIcon Include="Resources\AppIcon\backgroundicon.svg" ForegroundFile="Resources\AppIcon\petcommandssummon.svg" Resize="True" BaseSize="128,128"/>
         <MauiImage Include="Resources\Raw\womancradlingcat.json" />
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\foregroundicon.svg" Resize="True" BaseSize="128,128" Color="#416D6C"/>
+        <MauiSplashScreen Include="Resources\Splash\letteringbunny.png" Resize="True" BaseSize="128,128" Color="#416D6C"/>
         <!-- Images -->
         <MauiImage Include="Resources\Images\*"/>
         <MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185"/>
