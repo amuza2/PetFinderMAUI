@@ -15,6 +15,11 @@ public class NewPostViewModel : INotifyPropertyChanged
     private string _petDescription;
     private string _petImageUrl;
     private string _petName;
+    private string _petType;
+    private string _gender;
+    private string _age;
+    private string _breed;
+    private bool _vaccinated;
 
     private ImageSource _selectedImageSource;
 
@@ -58,7 +63,57 @@ public class NewPostViewModel : INotifyPropertyChanged
             RaisePropertyChanged("PetImageUrl");
         }
     }
+    
+    public string PetType
+    {
+        get => _petType;
+        set
+        {
+            _petType = value;
+            RaisePropertyChanged("PetType");
+        }
+    }
 
+    public string Gender
+    {
+        get => _gender;
+        set
+        {
+            _gender = value;
+            RaisePropertyChanged("Gender");
+        }
+    }
+
+    public string Age
+    {
+        get => _age;
+        set
+        {
+            _age = value;
+            RaisePropertyChanged("Age");
+        }
+    }
+
+    public string Breed
+    {
+        get => _breed;
+        set
+        {
+            _breed = value;
+            RaisePropertyChanged("Breed");
+        }
+    }
+
+    public bool Vaccinated
+    {
+        get => _vaccinated;
+        set
+        {
+            _vaccinated = value;
+            RaisePropertyChanged("Vaccinated");
+        }
+    }
+    
     public event PropertyChangedEventHandler PropertyChanged;
 
     private void RaisePropertyChanged(string propertyName)
@@ -106,16 +161,17 @@ public class NewPostViewModel : INotifyPropertyChanged
         var pet = new Pet
         {
             Timestamp = DateTime.Now,
-            PetAge = "",
-            PetVaccinated = false,
-            PetBreed = "",
-            PetCategory = "",
+            PetAge = Age,
+            PetBreed = Breed,
+            PetCategory = PetType,
             PetFavourite = false,
             PetStatus = "",
             PetName = PetName,
             PetDescription = PetDescription,
             PetImage = PetImageUrl,
-            PublisherId = userId
+            PublisherId = userId,
+            Gender = Gender,
+            Vaccinated = Vaccinated
         };
 
         // Post the pet to Firebase and get the generated key
