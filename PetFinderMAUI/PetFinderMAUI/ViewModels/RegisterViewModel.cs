@@ -139,7 +139,7 @@ internal class RegisterViewModel : INotifyPropertyChanged
             var userInfo = new User
             {
                 FullName = SignUpFullName.Trim(),
-                IsAdmin = false,
+                UserType = "User",
                 PhoneNumber = "not set",
                 Address = "not set",
                 UserId = userId,

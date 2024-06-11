@@ -105,6 +105,7 @@ public class NewPostViewModel : INotifyPropertyChanged
         // Create a new Pet object
         var pet = new Pet
         {
+            Timestamp = DateTime.Now,
             PetAge = "",
             PetVaccinated = false,
             PetBreed = "",
