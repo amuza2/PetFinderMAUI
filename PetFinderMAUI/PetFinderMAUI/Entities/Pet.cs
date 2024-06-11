@@ -13,4 +13,5 @@ public class Pet
     public string PetBreed { get; set; } = "not mentioned";
     public string PetCategory { get; set; } = "not mentioned";
     public string PetStatus { get; set; } = "waiting";
+    public DateTime Timestamp { get; set; } = DateTime.Now;
 }

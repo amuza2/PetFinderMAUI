@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.LocalNotification;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using The49.Maui.BottomSheet;
 using UraniumUI;
@@ -13,6 +14,7 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder.UseMauiApp<App>()
             .UseSkiaSharp()
+            .UseLocalNotification()
             .UseBottomSheet().UseUraniumUI().UseUraniumUIMaterial().ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
