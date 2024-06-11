@@ -8,7 +8,8 @@
 
     <StackLayout Padding="10">
 
-        <Frame BorderColor="LightSlateGrey" WidthRequest="120" HeightRequest="120" CornerRadius="10" Padding="0">
+        <Frame BorderColor="LightSlateGrey" Margin="0,20,0,0" WidthRequest="180" HeightRequest="180" CornerRadius="10"
+               Padding="0">
             <Image Source="{Binding SelectedImageSource}" Aspect="AspectFill" />
         </Frame>
 
@@ -21,6 +22,7 @@
                             FontFamily="NunitoRegular"
                             HeightRequest="50"
                             AllowClear="True" />
+
         <material:TextField Title="Pet Description"
                             Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Description}}"
                             Margin="0,10,0,0"
@@ -31,6 +33,60 @@
                             HeightRequest="50"
                             AllowClear="True" />
 
+        <Picker Title="Pet Type"
+                x:Name="PetTypePicker"
+                SelectedItem="{Binding PetType}"
+                WidthRequest="320"
+                FontFamily="NunitoRegular">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Dog</x:String>
+                    <x:String>Cat</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Picker Title="Gender"
+                x:Name="GenderPicker"
+                SelectedItem="{Binding Gender}"
+                WidthRequest="320"
+                FontFamily="NunitoRegular">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Male</x:String>
+                    <x:String>Female</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <material:TextField Title="Age"
+                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Calendar_view_day}}"
+                            Margin="0,10,0,0"
+                            x:Name="AgeEntry"
+                            WidthRequest="320"
+                            Text="{Binding Age}"
+                            FontFamily="NunitoRegular"
+                            HeightRequest="50"
+                            AllowClear="True" />
+
+        <material:TextField Title="Breed"
+                            Icon="{FontImageSource FontFamily=MaterialRegular, Glyph={x:Static m:MaterialRegular.Pets}}"
+                            Margin="0,10,0,0"
+                            x:Name="BreedEntry"
+                            WidthRequest="320"
+                            Text="{Binding Breed}"
+                            FontFamily="NunitoRegular"
+                            HeightRequest="50"
+                            AllowClear="True" />
+
+        <StackLayout WidthRequest="320"
+                     HeightRequest="50"
+                     Orientation="Horizontal"
+                     Margin="0,10,0,0">
+            <Label Text="Vaccinated" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Switch IsToggled="{Binding Vaccinated}" />
+        </StackLayout>
+
         <Button x:Name="PickImageButton"
                 HorizontalOptions="Center"
                 WidthRequest="320"
@@ -39,6 +95,7 @@
                 Margin="0,20,0,0"
                 Text="Choose pet photo"
                 Clicked="OnPickImageButtonClicked" />
+
         <Button x:Name="PostButton" HorizontalOptions="Center"
                 WidthRequest="320"
                 FontFamily="NunitoRegular"
