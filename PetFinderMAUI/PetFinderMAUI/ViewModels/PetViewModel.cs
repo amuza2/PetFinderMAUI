@@ -19,14 +19,13 @@ public class PetViewModel : INotifyPropertyChanged
     private bool _isRefreshing;
 
     private ObservableCollection<Pet> _pets;
-    
+
 
     public PetViewModel()
     {
         Pets = new ObservableCollection<Pet>();
         RefreshCommand = new Command(async () => await LoadPets());
         LoadPets();
-       
     }
 
     public ObservableCollection<Pet> Pets
@@ -75,7 +74,10 @@ public class PetViewModel : INotifyPropertyChanged
         foreach (var pet in pets)
         {
             pet.Object.PetId = pet.Key; // Set PetId to the key from Firebase
-            Pets.Add(pet.Object);
+            if (pet.Object.PetStatus == "true")
+            {
+                Pets.Add(pet.Object);
+            }
         }
 
         IsRefreshing = false;
@@ -103,6 +105,4 @@ public class PetViewModel : INotifyPropertyChanged
             .OnceSingleAsync<User>();
         return user;
     }
-
-    
 }

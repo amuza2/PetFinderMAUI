@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:PetFinderMAUI.Views"
              x:Class="PetFinderMAUI.Pages.ProfilePage"
              Title="Account">
     <ContentPage.Resources>
@@ -14,6 +15,7 @@
     </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout Padding="20">
+            
             <Label Text="My account" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
             <Label Text="👤 Jesse Smith" FontFamily="PoppinsBold" FontSize="20" />
             <BoxView /><Label Text="Edit Account Details" /><BoxView />
@@ -22,7 +24,12 @@
             <Label Text="🎛️ APP SETTINGS" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
             <BoxView />
             <Label Text="🔔 Push Notifications" /><BoxView />
-            <Label Text="🔲 Display Settings" /><BoxView />
+            <Label Text="🔲 Manage my posts" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnManagePostsClicked" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+            <BoxView />
             <ContentView HeightRequest="20" />
 
             <Label Text="✉️ SUPPORT" FontFamily="PoppinsSemibold" TextColor="{StaticResource Gray300}" />
@@ -40,6 +47,12 @@
             </Label>
 
             <BoxView />
+
+           
+
         </VerticalStackLayout>
+
+
     </ScrollView>
+    
 </ContentPage>

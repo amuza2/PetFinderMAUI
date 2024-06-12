@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Globalization;
+using System.Windows.Input;
 using CommunityToolkit.Maui.Alerts;
 using Firebase.Auth;
 using Newtonsoft.Json;
@@ -31,6 +32,7 @@ internal class LoginViewModel : INotifyPropertyChanged
         _navigation = navigation;
         RegisterBtn = new Command(RegisterBtnTappedAsync);
         LoginBtn = new Command(LoginBtnTappedAsync);
+        ForgotPasswordCommand = new Command(async () => await SendPasswordResetEmail());
     }
 
     public bool IsLoginRunning
@@ -46,6 +48,7 @@ internal class LoginViewModel : INotifyPropertyChanged
     // Commands for the Register and Login buttons
     public Command RegisterBtn { get; }
     public Command LoginBtn { get; }
+    public ICommand ForgotPasswordCommand { get; set; }
 
 
     // Property for the username
@@ -115,6 +118,26 @@ internal class LoginViewModel : INotifyPropertyChanged
                 : "Unknown error");
         }
     }
+    
+    private async Task SendPasswordResetEmail()
+    {
+        if (string.IsNullOrEmpty(UserName))
+        {
+            // Show a message to the user to enter their email
+            // You can replace this with your preferred method of showing messages
+            Console.WriteLine("Please enter your email.");
+            GlobalHelper.ShowToast("Please enter your email.",16);
+
+            return;
+        }
+
+        var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
+        await authProvider.SendPasswordResetEmailAsync(UserName);
+        // Show a message to the user that the password reset email has been sent
+        // You can replace this with your preferred method of showing messages
+        // Console.WriteLine("Password reset email sent.");
+        GlobalHelper.ShowToast("An Email has been sent to your Email Address.",16);
+    }
 
     private static async void ShowSnackBar(string text)
     {
@@ -141,6 +164,8 @@ internal class LoginViewModel : INotifyPropertyChanged
     }
 }
 
+
+
 public class InverseBoolConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -154,4 +179,5 @@ public class InverseBoolConverter : IValueConverter
     {
         throw new NotImplementedException();
     }
+    
 }

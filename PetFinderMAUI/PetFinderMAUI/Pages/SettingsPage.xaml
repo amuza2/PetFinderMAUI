@@ -2,11 +2,29 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:PetFinderMAUI.Views"
              x:Class="PetFinderMAUI.Pages.SettingsPage">
     <ContentPage.Content>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25" />
 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <!-- User Posts -->
+            <RefreshView Grid.Row="0" IsRefreshing="{Binding IsRefreshing}" Command="{Binding URefreshCommand}">
+                <CollectionView ItemsSource="{Binding UserPets}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <views:PetCard />
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" />
+                    </CollectionView.ItemsLayout>
+                </CollectionView>
+            </RefreshView>
+            
+        </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

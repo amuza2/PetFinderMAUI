@@ -1,13 +1,17 @@
+using PetFinderMAUI.ViewModels;
+
 namespace PetFinderMAUI.Pages;
 
 public partial class ProfilePage : ContentPage
 {
+    
     public ProfilePage()
     {
         InitializeComponent();
+       
     }
 
-    private async void OnLogoutClicked(object sender, EventArgs e)
+    private void OnLogoutClicked(object sender, EventArgs e)
     {
         // Clear the user's credentials from secure storage
         SecureStorage.Remove("username");
@@ -20,5 +24,10 @@ public partial class ProfilePage : ContentPage
         // await Navigation.PushAsync(new LoginPage());
         // Set the HomePage of the application to a new instance of LoginPage
         Application.Current!.MainPage = new LoginPage();
+    }
+
+    private async void OnManagePostsClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SettingsPage());
     }
 }
