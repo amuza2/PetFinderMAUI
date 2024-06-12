@@ -64,7 +64,11 @@
                HorizontalOptions="End"
                FontFamily="NunitoRegular"
                TextColor="#416D6C"
-               Margin="0,8,6,30" />
+               Margin="0,8,6,30" >
+        <Label.GestureRecognizers>
+               <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+        </Label.GestureRecognizers>
+        </Label>
 
         <Label HorizontalOptions="Center" FontFamily="NunitoRegular"
                Text="ــــــــــــــــــــــــــــــــــــــــــــــ Or ــــــــــــــــــــــــــــــــــــــــــــــ" />

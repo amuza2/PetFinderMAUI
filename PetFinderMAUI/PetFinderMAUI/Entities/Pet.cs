@@ -13,6 +13,6 @@ public class Pet
     public bool Vaccinated { get; set; }
     public string PetBreed { get; set; } = "not mentioned";
     public string PetCategory { get; set; } = "not mentioned";
-    public string PetStatus { get; set; } = "waiting";
+    public string PetStatus { get; set; } = "false";
     public DateTime Timestamp { get; set; } = DateTime.Now;
 }
